@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "dev": "bun run --hot src/index.ts",
+    "generate": "drizzle-kit generate",
+    "migrate": "drizzle-kit migrate"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.6.0",
+    "@types/better-sqlite3": "^7.6.10",
+    "better-sqlite3": "^9.6.0",
+    "dotenv": "^16.4.5",
+    "drizzle-kit": "^0.21.0",
+    "drizzle-orm": "^0.30.10",
+    "hono": "^4.3.4",
+    "sqlite3": "^5.1.7",
+    "studio": "^0.13.5"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}
