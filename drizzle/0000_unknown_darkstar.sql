@@ -1,5 +1,5 @@
 CREATE TABLE `todos` (
 	`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
-	`name` text,
+	`content` text,
 	`isCompleted` integer DEFAULT false NOT NULL
 );
