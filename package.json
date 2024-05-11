@@ -6,12 +6,16 @@
   },
   "dependencies": {
     "@libsql/client": "^0.6.0",
+    "@types/bcrypt": "^5.0.2",
     "@types/better-sqlite3": "^7.6.10",
+    "@types/jsonwebtoken": "^9.0.6",
+    "bcrypt": "^5.1.1",
     "better-sqlite3": "^9.6.0",
     "dotenv": "^16.4.5",
     "drizzle-kit": "latest",
     "drizzle-orm": "^0.30.10",
     "hono": "^4.3.4",
+    "jsonwebtoken": "^9.0.2",
     "sqlite3": "^5.1.7",
     "studio": "^0.13.5"
   },
