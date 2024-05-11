@@ -2,8 +2,8 @@ import { Hono } from 'hono';
 import { db } from '../db/client';
 import { todos } from '../db/schema';
 import { CreateRequestBody, CreateTodoObject, UpdateRequestBody } from '../types/api/todo';
-import { authMiddleware } from '../middleware/auth';
 import { eq, and } from 'drizzle-orm';
+import { authMiddleware } from '../middleware/auth';
 
 type Variables = {
     user: string;
