@@ -12,7 +12,7 @@ export const authMiddleware = createMiddleware(async (c, next) => {
 
     try {
         const decoded = jwt.verify(token, SECRET_KEY) as jwt.JwtPayload;
-        c.set('user', decoded);
+        c.set('user', decoded.userId);
         await next();
     } catch (error) {
         return c.json({message: 'Invalid token'}, 401);

@@ -3,21 +3,22 @@ import * as jwt from 'jsonwebtoken';
 import { db } from '../db/client';
 import { users } from '../db/schema';
 import { eq } from 'drizzle-orm';
+import { CreateRequestBody, User } from "../types/api/user";
 
 const SECRET_KEY = process.env.SECRET_KEY as string;
 
 export const userHandlers = new Hono();
 
 userHandlers.post('/signup', async (c) => {
-    const { username, password } = await c.req.json();
+    const { username, password }: CreateRequestBody = await c.req.json();
     const passwordHash: string = await Bun.password.hash(password)
-    const newUser = { username, passwordHash };
+    const newUser: User = { username, passwordHash };
     await db.insert(users).values(newUser);
     return c.json({message: 'User Signuped'}, 201);
 })
 
 userHandlers.post('/login', async (c) => {
-    const { username, password } = await c.req.json();
+    const { username, password }: CreateRequestBody = await c.req.json();
     const user = await db.select().from(users).where(eq(users.username, username)).limit(1);
     console.log(await Bun.password.verify(password, user[0].passwordHash))
     if (!user || !await Bun.password.verify(password, user[0].passwordHash)) {

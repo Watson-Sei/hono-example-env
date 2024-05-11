@@ -1,8 +1,10 @@
 import { Hono } from 'hono'
 import { userHandlers } from './handlers/user';
+import { todoHandlers } from './handlers/todo';
 
 const app = new Hono();
 
+app.route('/api/', todoHandlers);
 app.route('/api/auth', userHandlers);
 
 app.notFound((c) => {
